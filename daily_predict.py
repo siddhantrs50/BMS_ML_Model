@@ -11,7 +11,7 @@ try:
 
     with open(f"predictions_{datetime.now().date()}.json", "w") as f:
         json.dump(predictions, f, indent=2)
-    print("✅ Predictions saved successfully.")
+    print("Predictions saved successfully.")
 
 except Exception as e:
-    print("❌ Error during prediction:", e)
+    print("Error during prediction:", e)
