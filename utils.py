@@ -1,10 +1,7 @@
 import pandas as pd
 
-def prepare_vehicle_daily_summary(df):
-    df["created_at"] = pd.to_datetime(df["created_at"])
-    df["date"] = df["created_at"].dt.date
-
-    summary = df.groupby(["vehicleid", "date"]).agg({
+def prepare_vehicle_summary(df):
+    summary = df.groupby("vehicleid").agg({
         "total_pack_voltage": "mean",
         "total_pack_current": "mean",
         "state_of_charge": "mean",
@@ -18,5 +15,4 @@ def prepare_vehicle_daily_summary(df):
         "internal_resistance": "mean",
         "estimated_range": "mean"
     }).reset_index()
-
     return summary

@@ -1,7 +1,9 @@
-from sqlalchemy import create_engine
+import uuid
+from sqlalchemy import create_engine, text
 import pandas as pd
 
 DB_URL = "postgresql://postgres:Root22012003@bms-database.c94sysco8nc8.eu-north-1.rds.amazonaws.com:5432/bmsdb"
+engine = create_engine(DB_URL)
 
 def fetch_data():
     engine = create_engine(DB_URL)
